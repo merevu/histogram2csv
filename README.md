@@ -1,3 +1,3 @@
 # histogram2csv
 
-It can download query result in terms of csv from Elasticsearch.
+Using queries from Histogram of Kibana can download query result in terms of csv from Elasticsearch.
