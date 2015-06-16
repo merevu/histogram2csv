@@ -1,5 +1,3 @@
-__author__ = 'inseob0.kim@samsung.com'
-
 import requests
 import json
 import datetime
@@ -53,9 +51,6 @@ def main(json_input=None, csv_output=None):
     request = curl_request[1][0:-1]
 
     queryIdx = getQueryIdx(request)
-
-    # Get the response from the Elasticsearch server
-    # url.replace('swn.ep.sdscloud.co.kr', 'es.compute.product:9002')
     response = requests.post(url, data=request)
     response_json = json.loads(response.text)
 
@@ -65,7 +60,6 @@ def main(json_input=None, csv_output=None):
             writer = csv.writer(f_out)
             try:
                 writer.writerow(['date', 'time', 'query', 'min', 'max', 'total', 'total_count', 'mean'])
-                # printFields(fields)
                 while True:
                     if response_json["facets"][str(i)]["entries"]:
                         for x in response_json["facets"][str(i)]["entries"]:
